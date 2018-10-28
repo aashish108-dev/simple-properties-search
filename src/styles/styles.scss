@@ -1,0 +1,101 @@
+// @import 'reset';
+
+.container{
+  width: 75%;
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  .search{
+    input{
+      padding: 10px;
+    }
+    button{
+      padding: 10px;
+      margin-left: 10px;
+    }
+  }
+  .results{
+    .result{
+      margin-bottom: 35px;
+      @media screen and (min-width:61.25em){
+        &:after{
+          clear: both;
+          content: '';
+          display: table;
+        }
+      }
+      width: 100%;
+      .image{
+        width: 100%;
+        @media screen and (min-width:42.5625em){
+          width: 50%;
+          float: left;
+        }
+        @media screen and (min-width:61.25em){
+          width: 33%;
+          float: left;
+        }
+        img{
+          max-width: 100%;
+          height: auto;
+        }
+      }
+      .description{
+        width: 100%;
+        @media screen and (min-width:42.5625em){
+          width: 48%;
+          float: left;
+          margin-left: 2%;
+          &:after{
+            clear: both;
+            content: '';
+            display: table;
+          }
+        }
+        @media screen and (min-width:61.25em){
+          width: 31%;
+          float: left;
+          margin-left: 2%;
+          &:after{
+            clear: none;
+            content: '';
+            display: none;
+          }
+        }
+        .pTitle{
+          font-weight: bold;
+        }
+      }
+      .agent{
+        width: 100%;
+        @media screen and (min-width:42.5625em){
+          margin: 10px 0 10px 0;
+          width: 100%; 
+          clear:both;
+          &:after{
+            clear: both;
+            content: '';
+            display: table;
+          }
+          .agentLogo, .agentName, .agentAddress, .tel{
+            float: left;
+          }
+          p{
+            margin: 0 10px 0 0;
+            padding: 0;
+          }
+        }
+        @media screen and (min-width:61.25em){
+          margin: 0;
+          width: 33%;
+          float: left;
+          clear: none;
+          .agentLogo, .agentName, .agentAddress, .tel{
+            clear: both;
+            margin-left: 0px;
+          }
+        }
+      }
+    }
+  }
+}

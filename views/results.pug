@@ -1,0 +1,30 @@
+html
+  head
+    title= title
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='stylesheet' href='dist/styles/styles.css')
+  body
+    div.container
+      div.results
+        h1 Results
+        p #{results} results found
+        div.resultsContainer
+          for l in data.listing
+            div.result
+              div.image
+                img(src=l.image_url)
+              div.description 
+                p.pTitle #{l.num_bedrooms} bed #{l.property_type} for sale
+                p.price(data-price=l.price)
+                p= l.description
+              div.agent
+                div.agentLogo
+                  img(src=l.agent_logo)
+                div.agentName 
+                  p= l.agent_name
+                div.agentAddress 
+                  p= l.agent_address
+                div.tel 
+                  p T: #{l.agent_phone}
+  script(src="dist/scripts/rawPriceFormatter.js")
+

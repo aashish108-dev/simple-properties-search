@@ -1,0 +1,16 @@
+html
+  head
+    title= title
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='stylesheet' href='dist/styles/styles.css')
+  body
+    div.container
+      h1= title
+      div.search
+        h2.searchFormTitle
+        form(method="post" action="/results")
+          div.searchField
+            input(type="text" name='search')
+            button(type='submit') Search
+      
+

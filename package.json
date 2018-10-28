@@ -1,0 +1,37 @@
+{
+  "name": "simple-properties-search",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha",
+    "build:js": "./node_modules/.bin/babel src/scripts/rawPriceFormatter.js --out-dir dist/scripts --presets=@babel/env",
+    "build:scss": "sass --watch src/styles:dist/styles",
+    "start": "concurrently \"npm run build:js\" \"npm run build:scss\" \"nodemon\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aashish108/simple-properties-search.git"
+  },
+  "author": "Aashish Sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aashish108/simple-properties-search/issues"
+  },
+  "homepage": "https://github.com/aashish108/simple-properties-search#readme",
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.0.1",
+    "express": "^4.16.4",
+    "pug": "^2.0.3",
+    "sass": "^1.14.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  }
+}
