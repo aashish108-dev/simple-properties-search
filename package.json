@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha",
-    "build:js": "./node_modules/.bin/babel src/scripts/rawPriceFormatter.js --out-dir dist/scripts --presets=@babel/env",
+    "build:js": "./node_modules/.bin/babel src/scripts --out-dir dist/scripts --presets=@babel/env",
     "build:scss": "sass --watch src/styles:dist/styles",
     "start": "concurrently \"npm run build:js\" \"npm run build:scss\" \"nodemon\" "
   },

@@ -5,7 +5,7 @@ html
     link(rel='stylesheet' href='dist/styles/styles.css')
   body
     div.container
-      div.results
+      div.results#results
         h1 Results
         p #{results} results found
         div.resultsContainer
@@ -27,4 +27,5 @@ html
                 div.tel 
                   p T: #{l.agent_phone}
   script(src="dist/scripts/rawPriceFormatter.js")
+  script(src="dist/scripts/init.js")
 

@@ -1,9 +1,9 @@
 const search = require('../src/scripts/search.js');
-var assert = require('chai').assert
+const processRawPrices = require('../src/scripts/rawPriceFormatter.js');
+var assert = require('chai').assert;
 var chai = require('chai');
 
 describe('search', function () {
-
   it('should load an external valid JSON file.', function (done) {
     let searchInstance = new search();
 
@@ -65,5 +65,28 @@ describe('search', function () {
       assert.isNotOk(error,'Promise error');
     })
   });
+});
 
+describe('results', function () {
+  var processInstance = new processRawPrices();
+  it('should format a raw price of 1000 properly', function() {
+    let processedPrice = processInstance.processRawPrice('1000');
+    assert.equal(processedPrice, '£1,000');
+  });
+  it('should format a raw price of 10000 properly', function() {
+    let processedPrice = processInstance.processRawPrice('10000');
+    assert.equal(processedPrice, '£10,000');
+  });
+  it('should format a raw price of 100000 properly', function() {
+    let processedPrice = processInstance.processRawPrice('100000');
+    assert.equal(processedPrice, '£100,000');
+  });
+  it('should format a raw price of 1000000 properly', function() {
+    let processedPrice = processInstance.processRawPrice('1000000');
+    assert.equal(processedPrice, '£1,000,000');
+  });
+  it('should format a raw price of 10000000 properly', function() {
+    let processedPrice = processInstance.processRawPrice('10000000');
+    assert.equal(processedPrice, '£10,000,000');
+  });
 });

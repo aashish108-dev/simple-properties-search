@@ -1,20 +1,25 @@
 class RawPriceFormatter {
 
-  constructor(rawPrice) {
-    this.rawPrice = rawPrice;
+  constructor() {
+    this.rawPrice;
     this.priceSelector = '.result .price';
     this.processedPrice;
   }
 
-  getRawPrices(){
-    var elements = document.querySelectorAll(this.priceSelector);
+  init(){
     let that = this;
-    elements.forEach(function(el, i){
-      that.processRawPrice(el.getAttribute('data-price'), el);
+     this.getRawPrices().forEach(function(el, i){
+      let processedPrice = that.processRawPrice(el.getAttribute('data-price'), el)
+      that.insertFormattedPrice(processedPrice, el);
     });
   }
 
-  processRawPrice(rawPrice, el){
+  getRawPrices(){
+    let elements = document.querySelectorAll(this.priceSelector);
+    return elements;
+  }
+
+  processRawPrice(rawPrice){
     let sLength = rawPrice.length;
     let processedPrice = '£';
     switch(sLength){
@@ -32,14 +37,14 @@ class RawPriceFormatter {
         break;
       // Millions
       case 7:
-        processedPrice += rawPrice.slice(0,1)+','+rawPrice.slice(1,4)+','+rawPrice.slice(4)
+        processedPrice += rawPrice.slice(0,1)+','+rawPrice.slice(1,4)+','+rawPrice.slice(4);
         break; 
       // 10 Millions
       case 8:
-        processedPrice += rawPrice.slice(0,2)+','+rawPrice.slice(2,5)+','+rawPrice.slice(4,8)+','+rawPrice.slice(8);
+        processedPrice += rawPrice.slice(0,2)+','+rawPrice.slice(2,5)+','+rawPrice.slice(5);
         break; 
     }
-    this.insertFormattedPrice(processedPrice, el);
+    return processedPrice;
   }
 
   insertFormattedPrice(processedPrice, el){
@@ -48,6 +53,6 @@ class RawPriceFormatter {
 
 }
 
-// module.exports = RawPriceFormatter;
-var processRawPrices = new RawPriceFormatter;
-processRawPrices.getRawPrices(); 
+if(typeof exports !== 'undefined') {
+  module.exports = RawPriceFormatter;
+}
